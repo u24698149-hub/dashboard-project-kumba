@@ -1,0 +1,174 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Open+Sans+Condensed:wght@300;700&display=swap");
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * Kumba Iron Ore — Strategic Innovation Dashboard design system.
+ * Brand: Navy #0A2240, Gold #C8A951, supporting steel/ore/safety tones.
+ * Typography: Montserrat Bold (display), Open Sans Condensed (body).
+ */
+
+@theme inline {
+  --font-display: "Montserrat", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Open Sans Condensed", ui-sans-serif, system-ui, sans-serif;
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --color-navy: var(--navy);
+  --color-navy-deep: var(--navy-deep);
+  --color-gold: var(--gold);
+  --color-gold-soft: var(--gold-soft);
+  --color-ore: var(--ore);
+  --color-steel: var(--steel);
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+  --color-danger: var(--danger);
+
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+:root {
+  --radius: 0.625rem;
+
+  /* Brand — from uploaded brandpack */
+  --navy: oklch(0.27 0.08 268);            /* #1e2a5e brand navy */
+  --navy-deep: oklch(0.18 0.04 260);       /* #0a1929 near-black navy */
+  --gold: oklch(0.79 0.14 82);             /* #e5b73b vivid gold */
+  --gold-soft: oklch(0.72 0.12 70);        /* #c47e2e burnt amber */
+  --gold-deep: oklch(0.62 0.11 78);        /* #b88b2e dark mustard */
+  --ore: oklch(0.62 0.11 78);
+  --steel: oklch(0.45 0.01 260);           /* #505050 graphite */
+  --mint: oklch(0.83 0.07 175);            /* #8fd6c4 accent */
+  --ink: oklch(0.22 0.005 260);            /* #2c2c2c */
+
+  /* Surfaces */
+  --background: oklch(0.985 0.003 250);    /* #f5f5f5 base */
+  --foreground: oklch(0.22 0.005 260);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.22 0.005 260);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.22 0.005 260);
+
+  --primary: var(--navy);
+  --primary-foreground: oklch(0.985 0.003 250);
+  --secondary: oklch(0.95 0.005 250);
+  --secondary-foreground: var(--navy);
+  --muted: oklch(0.95 0.005 250);
+  --muted-foreground: oklch(0.45 0.01 260);
+  --accent: var(--gold);
+  --accent-foreground: var(--navy-deep);
+
+  --success: oklch(0.7 0.1 175);           /* mint-tinted success */
+  --warning: oklch(0.79 0.14 82);          /* gold */
+  --danger: oklch(0.58 0.22 27);
+  --destructive: var(--danger);
+  --destructive-foreground: oklch(0.985 0.003 250);
+
+  --border: oklch(0.9 0.005 255);
+  --input: oklch(0.92 0.005 255);
+  --ring: var(--gold);
+
+  --chart-1: var(--navy);
+  --chart-2: var(--gold);
+  --chart-3: var(--gold-soft);
+  --chart-4: var(--mint);
+  --chart-5: var(--steel);
+
+  /* Sidebar — deep navy with gold accents */
+  --sidebar: var(--navy-deep);
+  --sidebar-foreground: oklch(0.92 0.01 85);
+  --sidebar-primary: var(--gold);
+  --sidebar-primary-foreground: var(--navy-deep);
+  --sidebar-accent: oklch(0.27 0.06 268);
+  --sidebar-accent-foreground: oklch(0.92 0.01 85);
+  --sidebar-border: oklch(0.32 0.05 268);
+  --sidebar-ring: var(--gold);
+
+  /* Effects */
+  --gradient-hero: linear-gradient(135deg, var(--navy-deep), var(--navy) 60%, color-mix(in oklab, var(--gold) 28%, var(--navy)) 100%);
+  --gradient-gold: linear-gradient(135deg, var(--gold), var(--gold-soft));
+  --shadow-elegant: 0 10px 30px -12px color-mix(in oklab, var(--navy-deep) 50%, transparent);
+  --shadow-gold: 0 8px 24px -10px color-mix(in oklab, var(--gold) 55%, transparent);
+}
+
+.dark {
+  --background: oklch(0.16 0.03 264);
+  --foreground: oklch(0.96 0.01 85);
+  --card: oklch(0.22 0.04 264);
+  --card-foreground: oklch(0.96 0.01 85);
+  --popover: oklch(0.22 0.04 264);
+  --popover-foreground: oklch(0.96 0.01 85);
+  --primary: var(--gold);
+  --primary-foreground: var(--navy);
+  --secondary: oklch(0.26 0.04 264);
+  --secondary-foreground: oklch(0.96 0.01 85);
+  --muted: oklch(0.26 0.04 264);
+  --muted-foreground: oklch(0.7 0.02 250);
+  --accent: var(--gold);
+  --accent-foreground: var(--navy);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+  html, body {
+    font-family: var(--font-sans);
+    font-weight: 300;
+    letter-spacing: 0.005em;
+  }
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    color: var(--navy);
+  }
+  .font-display { font-family: var(--font-display); }
+  .font-body { font-family: var(--font-sans); }
+}
